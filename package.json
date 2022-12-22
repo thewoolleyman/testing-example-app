@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export"
+    "export": "next export",
+    "test-e2e": "cypress run",
+    "test-unit": "vitest --no-watch",
+    "test-all": "npm run test-e2e && npm run test-unit"
   },
   "dependencies": {
     "cypress": "^10.0.3",
