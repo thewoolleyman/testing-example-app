@@ -1,3 +1,9 @@
+# TESTING EXAMPLE APPLICATION
+
+See notes in https://docs.google.com/document/d/1xHXFYQ8SFza0Te_CYOV_A0pc_gQN2elWdB5b0jCkvtY/edit#heading=h.1jqznnch8hlf
+
+Original next + netlify readme below...
+
 # Next + Netlify Starter
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
