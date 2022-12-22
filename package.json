@@ -11,12 +11,12 @@
     "test-all": "npm run test-e2e && npm run test-unit"
   },
   "dependencies": {
-    "cypress": "^10.0.3",
     "next": "^12.1.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "cypress": "^10.0.3",
     "netlify-cli": "^12.4.0",
     "vitest": "^0.26.2"
   }
