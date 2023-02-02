@@ -16,6 +16,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "cypress": "^10.0.3",
     "netlify-cli": "^12.4.0",
     "vitest": "^0.26.2"
