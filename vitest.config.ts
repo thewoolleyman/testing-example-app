@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [react()],
   test: {
     exclude: [...configDefaults.exclude, '.netlify/**'],
+    environment: 'jsdom'
   },
 })

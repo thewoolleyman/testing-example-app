@@ -1,8 +1,10 @@
 const Login = () => {
   return (
     <div>
-      <input type="text"/>
-      <input type="password"/>
+      <label htmlFor='email'>Email address</label>
+      <input id='email'/>
+      <label htmlFor='password'>Password</label>
+      <input id='password'/>
     </div>
   )
 }
