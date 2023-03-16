@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <div>Enter your desired username and password:</div>
         <Login title="Welcome to my app!" />
       </main>
 
