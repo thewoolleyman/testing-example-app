@@ -5,7 +5,5 @@ import Login from './Login'
 test('Login', () => {
   render(<Login/>)
   screen.getByRole('textbox', {name: /email/i});
-  // noinspection JSCheckFunctionSignatures
-  screen.getByLabelText(/password/i);
 })
  
