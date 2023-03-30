@@ -2,6 +2,12 @@
 
 See notes in https://docs.google.com/document/d/1xHXFYQ8SFza0Te_CYOV_A0pc_gQN2elWdB5b0jCkvtY/edit#heading=h.1jqznnch8hlf
 
+To run the app locally, run:
+
+```
+npx netlify dev
+```
+
 Original next + netlify readme below...
 
 # Next + Netlify Starter
