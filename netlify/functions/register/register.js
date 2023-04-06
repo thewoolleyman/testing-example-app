@@ -1,5 +1,8 @@
 const handler = async () => {
-  return 'Hello test.example.com!'
+  return {
+    statusCode: 200,
+    body: 'Hello test.example.com!'
+  }
 }
 
-module.exports = { handler }
+module.exports = {handler}
