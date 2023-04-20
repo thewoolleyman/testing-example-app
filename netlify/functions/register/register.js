@@ -1,7 +1,7 @@
-const handler = async () => {
+const handler = async (event) => {
   return {
     statusCode: 200,
-    body: 'Hello test.example.com!'
+    body: `Hello ${event.name}`
   }
 }
 
