@@ -1,19 +1,19 @@
 import {handler} from './register'
-import {describe, it, expect} from 'vitest'
+import {describe, expect, it} from 'vitest'
 
 describe('testing register function', () => {
   describe('when successful', () => {
-    it('returns hello + given email', async () => {
+    it('returns hello + given name as body property in the response', async () => {
       const name = 'robot'
-      // TODO: Shape of event argument and response must be correct for a netlify serverless event
-      const expectedResponse = {
-        statusCode: 200,
-        body: `Hello ${name}`
-      }
-      // TODO: discuss why we needed eql instead of eq
       const event = {name: name}
       const actualResponse = await handler(event);
-      expect(actualResponse.body).eql(expectedResponse.body)
+      expect(actualResponse.body).eql(`Hello ${name}`)
+    })
+    
+    it('returns 200 as the statusCode property in the response', async () => {
+      const event = {};
+      const actualResponse = await handler(event);
+      expect(actualResponse.statusCode).eql(200)
     })
   })
   describe('when failing', () => {
