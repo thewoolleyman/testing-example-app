@@ -9,7 +9,7 @@ describe('testing register function', () => {
       const actualResponse = await handler(event);
       expect(actualResponse.body).eql(`Hello ${name}`)
     })
-    
+
     it('returns 200 as the statusCode property in the response', async () => {
       const event = {};
       const actualResponse = await handler(event);
@@ -17,6 +17,12 @@ describe('testing register function', () => {
     })
   })
   describe('when failing', () => {
-    it.skip('handles error')
+    describe('when name is not provided', () => {
+      it.skip('returns 400 as the statusCode property in the response', async () => {
+        const event = {}
+        const actualResponse = await handler(event);
+        expect(actualResponse.statusCode).eql(400)
+      })
+    })
   })
 })
