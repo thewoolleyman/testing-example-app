@@ -1,7 +1,7 @@
 import {handler} from './register'
 import {describe, expect, it} from 'vitest'
 
-describe('testing register function', () => {
+describe('testing register handler function', () => {
   describe('when successful', () => {
     it('returns hello + given name as body property in the response', async () => {
       const name = 'robot'
@@ -11,14 +11,14 @@ describe('testing register function', () => {
     })
 
     it('returns 200 as the statusCode property in the response', async () => {
-      const event = {};
+      const event = {name: 'blah'};
       const actualResponse = await handler(event);
       expect(actualResponse.statusCode).eql(200)
     })
   })
   describe('when failing', () => {
     describe('when name is not provided', () => {
-      it.skip('returns 400 as the statusCode property in the response', async () => {
+      it('returns 400 as the statusCode property in the response', async () => {
         const event = {}
         const actualResponse = await handler(event);
         expect(actualResponse.statusCode).eql(400)
