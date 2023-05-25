@@ -1,15 +1,25 @@
 const handler = async (event) => {
-  const name = event.queryStringParameters.name;
-  if (!name) {
+  try {
+    const name = event.queryStringParameters.name;
+
+    if (!name) {
+      return {
+        statusCode: 400,
+        body: 'Name is required',
+      }
+    }
+
     return {
-      statusCode: 400,
-      body: 'Name is required',
+      statusCode: 200,
+      body: `Hello ${name}`,
+    }
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: error.toString(),
     }
   }
-  return {
-    statusCode: 200,
-    body: `Hello ${name}`
-  }
+
 }
 
 module.exports = {handler}
