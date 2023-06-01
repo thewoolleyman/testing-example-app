@@ -1,5 +1,5 @@
 import {handler} from './register'
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, beforeEach} from 'vitest'
 
 describe('testing register handler function', () => {
   describe('when successful', () => {
@@ -19,31 +19,34 @@ describe('testing register handler function', () => {
 
   describe('when failing', () => {
     describe('when name is not provided', () => {
-      it('returns 400 as the statusCode property in the response', async () => {
-        const event = {queryStringParameters:{}}
+      beforeEach((context) => {
+        context.event = {queryStringParameters:{}}
+      })
+      it('returns 400 as the statusCode property in the response', async ({event}) => {
         const actualResponse = await handler(event);
         expect(actualResponse.statusCode).eql(400)
       })
 
-      it('returns "Name is required" in the response', async () => {
-        const event = {queryStringParameters: {}}
+      it('returns "Name is required" in the response', async ({event}) => {
         const actualResponse = await handler(event);
         expect(actualResponse.body).eql('Name is required')
       })
     })
     
     describe('when an exception is thrown', () => {
-      it('return 500 as the statusCode property in the response', async () => {
+      beforeEach((context) => {
         // In reality, Netlify will always provide queryStringParameters, but we're omitting for
         // testing purposes, so we could test-drive the exception handling. But it's not
         // currently possible to simulate this exception with a test double.
-        const event = {}
+        context.event = {}
+      })
+
+      it('return 500 as the statusCode property in the response', async ({event}) => {
         const actualResponse = await handler(event)
         expect(actualResponse.statusCode).eql(500)
       })
       
-      it('returns the error message in the body', async () => {
-        const event = {}
+      it('returns the error message in the body', async ({event}) => {
         const actualResponse = await handler(event)
         expect(actualResponse.body).eql("TypeError: Cannot read properties of undefined (reading 'name')")
       })
